@@ -6,15 +6,17 @@ v2 mainboards do not have these pin definitions in firmware
 """
 
 import time
-import digitalio
+
 import board
+import digitalio
+import pwmio
 
 # Set up relay
 burn_relay = digitalio.DigitalInOut(board.RELAY_A)
 burn_relay.direction = digitalio.Direction.OUTPUT
 
 # Set up burnwire 1 (pin, duty cycle, frequency)
-burn1 = pwmio.PWMOut(board.BURN1, 2 ** 1, 1000)
+burn1 = pwmio.PWMOut(board.BURN1, duty_cycle = 2 ** 1, frequency = 1000)
 
 # EN relay for burnwires
 burn_relay.value = True
