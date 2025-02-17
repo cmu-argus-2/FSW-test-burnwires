@@ -9,11 +9,14 @@ import time
 import digitalio
 import board
 
-# Set up relay (EN) and burnwire 1 (PWM)
+# Set up relay
 burn_relay = digitalio.DigitalInOut(board.RELAY_A)
 burn_relay.direction = digitalio.Direction.OUTPUT
 
-# 
+# Set up burnwire 1 (pin, duty cycle, frequency)
+burn1 = pwmio.PWMOut(board.BURN1, 2 ** 1, 1000)
+
+# EN relay for burnwires
 burn_relay.value = True
 
 while True:
