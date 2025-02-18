@@ -15,12 +15,15 @@ import pwmio
 burn_relay = digitalio.DigitalInOut(board.RELAY_A)
 burn_relay.direction = digitalio.Direction.OUTPUT
 
-# Set up burnwire 1 (pin, duty cycle, frequency)
-burn1 = pwmio.PWMOut(board.BURN1, duty_cycle = 2 ** 1, frequency = 1000)
-
 # EN relay for burnwires
 burn_relay.value = True
 
-while True:
-    print("BURNNING")
+time.sleep(5)
+
+# Set up burnwire 1 (pin, duty cycle, frequency)
+burn1 = pwmio.PWMOut(board.BURN1, duty_cycle = int(0.05 * 65536), frequency = 200)
+
+for i in range(0, 10):
+    print("BRUNIGNINGINGIN")
     time.sleep(1)
+
