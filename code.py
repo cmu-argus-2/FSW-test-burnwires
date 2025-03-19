@@ -22,8 +22,9 @@ time.sleep(5)
 
 # Set up burnwire 1 (pin, duty cycle, frequency)
 burn1 = pwmio.PWMOut(board.BURN1, duty_cycle = int(0.05 * 65536), frequency = 200)
+burn2 = pwmio.PWMOut(board.BURN2, duty_cycle = int(0.05 * 65536), frequency = 200)
 
-for i in range(0, 10):
+for i in range(0, 5):
     print("BRUNIGNINGINGIN")
     time.sleep(1)
 
